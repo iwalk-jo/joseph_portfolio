@@ -13,8 +13,11 @@ body {
     color: set-text-color($primary-color);
     height: 100%;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
     line-height: 1.5;
+
+
 }
 
 // Headings
@@ -24,14 +27,19 @@ h3 {
     margin: 0;
     font-weight: 400;
 
+
     &.lg-heading {
         font-size: 6rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
     }
 
     &.sm-heading {
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
-        background: rgba(lighten($primary-color, 2), 0.5);
+        background: rgba(lighten($secondary-color, 2), 0.5);
+        animation: moveInRight 1s ease-out;
     }
 }
 
@@ -40,10 +48,17 @@ a {
     text-decoration: none;
 }
 
+#particles-js {
+    height: 100%;
+    width: 100%;
+}
+
 header {
     position: fixed;
-    z-index: 3;
+    z-index: 2;
     width: 100%;
+
+
 }
 
 .text-secondary {
@@ -53,17 +68,17 @@ header {
 main {
     padding: 4rem;
     // height: 100%;
-    min-height: calc(100vh -60px);
+    min-height: calc(100vh - 60px);
 
     .icons {
         margin-top: 1rem;
-
 
         a {
             padding: 0.4rem;
 
             &:hover {
                 color: $secondary-color;
+                z-index: 3;
                 @include easeOut();
 
             }
@@ -79,6 +94,35 @@ main {
     }
 }
 
+/* Main Logo  */
+.showcase-top {
+    position: relative;
+    z-index: 1;
+    height: 90px;
+}
+
+.showcase-top img {
+    width: 100px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Ghost for shadow effect  */
+.showcase::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.363);
+    box-shadow: inset 10px 10px 250px #000000, inset -10px -10px 250px #000000;
+}
+
+
 // About Me page 
 .about-info {
     display: grid;
@@ -92,11 +136,16 @@ main {
     .bio-image {
         grid-area: bioimage;
         margin: auto;
-        border-radius: 50%;
-        border: $secondary-color 3px solid;
+        width: 250px;
+        height: 300px;
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        // border-radius: 50%;
+        // border: $secondary-color 3px solid;
 
         img {
-            width: 100%;
+            width: 100%
         }
     }
 
@@ -122,25 +171,36 @@ main {
         padding: 0.5rem;
         border-bottom: $secondary-color 5px solid;
     }
+
 }
+
 
 // Work/Projects
 .projects {
     display: grid;
-    grid-gap: 0.7rem;
+    grid-gap: 3rem;
     grid-template-columns: repeat(3, 1fr);
+
+
 
     img {
         width: 100%;
         border: 3px #fff solid;
+        // @include easeOut;
+        transition: transform .3s;
 
         &:hover {
-            opacity: 0.5;
+            opacity: 0.6;
             border-color: $secondary-color;
+            transform: scale(1.1);
             @include easeOut;
         }
     }
+
+
 }
+
+
 
 
 // Contact Page
@@ -160,7 +220,7 @@ main {
 
         &:hover {
             padding: 0.5rem 1.5rem;
-            background: $secondary-color;
+            background: $gradient-color;
             color: set-text-color($secondary-color);
 
             span {
@@ -168,6 +228,7 @@ main {
             }
         }
     }
+
 }
 
 // Button Styles
@@ -202,6 +263,52 @@ main {
     background: darken($primary-color, 10);
     color: set-text-color($primary-color);
     height: 60px;
+}
+
+
+// Move in text
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
 
 
