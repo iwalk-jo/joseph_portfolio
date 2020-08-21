@@ -49,7 +49,8 @@
     .menu-nav.show {
       transform: translate3d(0, 0, 0); }
   .menu-branding {
-    background: linear-gradient(to left bottom, rgba(44, 130, 201, 0.432), rgba(102, 51, 153, 0.479));
+    background: rgba(46, 49, 49, 0.9);
+    z-index: -1;
     transform: translate3d(0, 100%, 0);
     transition: all 0.5s ease-out; }
     .menu-branding.show {
@@ -58,6 +59,7 @@
       width: 250px;
       height: 250px;
       background: url("../img/headshot_2.jpg");
+      z-index: 5;
       background-size: 100%;
       background-position: 50% 50%;
       background-repeat: no-repeat;
@@ -119,7 +121,7 @@ body {
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: rgba(46, 49, 49, 0.7);
+      background: rgba(46, 49, 49, 0.9);
       box-shadow: inset 10px 10px 250px linear-gradient(to left bottom, rgba(44, 130, 201, 0.432), rgba(102, 51, 153, 0.479)), inset -10px -10px 250px linear-gradient(to left bottom, rgba(44, 130, 201, 0.432), rgba(102, 51, 153, 0.479)); }
 
 h1,

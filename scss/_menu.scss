@@ -86,8 +86,11 @@
 
     // Branding Side
     &-branding {
-        background: $gradient-color;
-        // background: lighten($primary-color, 2);
+        background: rgba($primary-color, $background-opacity);
+        // background: ($gradient-color, 8);
+        // background: lighten($primary-color, 3);
+        // opacity: 0.8;
+        z-index: -1;
         transform: translate3d(0, 100%, 0);
         @include easeOut;
 
@@ -100,8 +103,8 @@
             width: 250px;
             height: 250px;
             background: url('../img/headshot_2.jpg');
-            // opacity: 0.9;
-            // z-index: 2;
+            // opacity: 8;
+            z-index: 5;
             // optional
             background-size: 100%;
             background-position: 50% 50%;
