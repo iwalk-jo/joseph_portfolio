@@ -178,7 +178,7 @@ main {
 // Work/Projects
 .projects {
     display: grid;
-    grid-gap: 3rem;
+    grid-gap: 0.7rem;
     grid-template-columns: repeat(3, 1fr);
 
 
@@ -190,7 +190,7 @@ main {
         transition: transform .3s;
 
         &:hover {
-            opacity: 0.6;
+            opacity: 0.5;
             border-color: $secondary-color;
             transform: scale(1.1);
             @include easeOut;
